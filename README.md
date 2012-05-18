@@ -37,5 +37,5 @@ Created by me, [Matt Lunn][6]. Contact me via contact@mattlunn.me.uk (although I
   [2]: http://meta.stackoverflow.com/questions/96426/ui-annoyances-in-the-suggested-edit-review-on-stack-overflow
   [3]: http://meta.stackoverflow.com/questions/97920/can-the-suggested-edit-page-not-show-the-edits-youve-already-voted-on
   [4]: http://meta.stackoverflow.com/questions/84102/add-ignore-button-to-suggested-edits
-  [5]: http://#
+  [5]: https://github.com/downloads/mattlunn/se-edit-queue/latest.crx
   [6]: http://mattlunn.me.uk
