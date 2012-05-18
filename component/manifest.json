@@ -1,0 +1,26 @@
+{
+  "name": "Suggested Edits",
+  "version": "1.0.0",
+  "description": "Fixes many annoyances with the Suggested Edit queue on Stack Exchange sites",
+  "manifest_version": 2,
+  "update_url": "http://cloud.github.com/downloads/mattlunn/se-edit-queue/updater.xml",
+  "content_scripts": [{
+    "js": ["jquery-1.7.2.js"],
+    "matches": [
+      "http://stackoverflow.com/review/suggested-edits*",
+      "http://*.stackoverflow.com/review/suggested-edits*",
+      "http://serverfault.com/review/suggested-edits*",
+      "http://*.serverfault.com/review/suggested-edits*",
+      "http://*.stackexchange.com/review/suggested-edits*"
+    ]
+  }, {
+    "js": ["edits.js"],
+    "matches": [
+      "http://stackoverflow.com/review/suggested-edits*",
+      "http://*.stackoverflow.com/review/suggested-edits*",
+      "http://serverfault.com/review/suggested-edits*",
+      "http://*.serverfault.com/review/suggested-edits*",
+      "http://*.stackexchange.com/review/suggested-edits*"
+    ]
+  }]
+}
