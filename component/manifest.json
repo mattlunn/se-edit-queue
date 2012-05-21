@@ -1,6 +1,6 @@
 {
   "name": "Suggested Edits",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Fixes many annoyances with the Suggested Edit queue on Stack Exchange sites",
   "manifest_version": 2,
   "update_url": "http://cloud.github.com/downloads/mattlunn/se-edit-queue/updater.xml",
