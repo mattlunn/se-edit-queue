@@ -3,7 +3,7 @@
   
   var debug = true;
   var prefs = (function () {
-    var key = 'settings';
+    var key = 'mattlunn-settings'; // Avoid a key conflict
     var prefs = JSON.parse(localStorage.getItem(key)) || {
       ignoredAction: 0,
       reviewedAction: 0,
@@ -40,7 +40,7 @@
     
     var hidden = $('div.post-id').filter(function () {
       return ids.indexOf(this.textContent) >= 0;
-    }).hide();
+    }).closest('.suggested-edit').hide();
     
     l('Hidden ' + reviewed.length + ' edits that have been reviewed already and ' + hidden.length + ' that have been ignored.');
   });
@@ -49,7 +49,6 @@
    * Ignore Button
    */
   jQuery(document).ready(function ($) {
-  
     $('input.approve-edit').before('<input type="button" class="ignore-edit" value="Ignore" style="margin-right:8px;"/>');
     
     $(document).on('click', 'input.ignore-edit', function () {
@@ -72,17 +71,38 @@
    * Voting annoyances
    */
   jQuery(document).ready(function ($) {
-    $(document).on('mousedown', '.actions input', function () {
-      $(this).closest('.suggested-edit').fadeTo(500, 0.3);
+    // A match for "'.suggested-edit:first", so the approval/ rejects that usually get thrown in at the top
+    // get hidden inside this container instead
+    $('body').prepend('<div style="display: none;"><div class="suggested-edit" /></div>');
+    
+    // Below is the only working hack I could find that made it seem final reject/ approve votes didn't hide
+    // the suggested edit. It works by cloning the suggested edit and positioning it behind the visible/ original
+    // edit. When the edit is approved and is removed, its actually the cloned edit you see. 
+    $('.suggested-edit:visible').each(function () {
+      var self = $(this);
+      var clone = self.clone();
+      var wrapper = $('<div class="wrapper" />');
+      
+      wrapper.insertBefore(self);
+      wrapper.css({
+        height: self.outerHeight() + 50,
+        position: 'relative'
+      });
+      
+      clone.removeProp('id');
+      clone.find('*').removeProp('id');
+      clone.css({
+        position: 'absolute',
+        left: 0,
+        top: 0,
+        zIndex: -2
+      });
+      
+      wrapper.append(self, clone);
     });
     
-    $('.suggested-edit').each(function () {
-      var wrapper = $('<div class="wrapper"/>');
-      var self = $(this);
-      
-      wrapper.css('minHeight', self.outerHeight());
-      
-      self.wrap(wrapper);
+    $(document).on('mousedown', '.actions input', function () {
+      $(this).closest('.wrapper').fadeTo(500, 0.3);
     });
   });
   
