@@ -2,7 +2,7 @@
 
 ![enter image description here][1]
 
-This Chrome Extension enhances the suggested edit queue to remove the usability annoyances we all know and <s>love</s> hate.
+This userscript enhances the suggested edit queue to remove the usability annoyances we all know and <s>love</s> hate.
 
  - [Suggested Edits will **not** jump to the top when casting the deciding vote.][2] They fade out instead.
  - [Suggested Edits you've already voted on are hidden on successive page loads][3].
@@ -37,5 +37,5 @@ Created by me, [Matt Lunn][6]. Contact me via contact@mattlunn.me.uk (although I
   [2]: http://meta.stackoverflow.com/questions/96426/ui-annoyances-in-the-suggested-edit-review-on-stack-overflow
   [3]: http://meta.stackoverflow.com/questions/97920/can-the-suggested-edit-page-not-show-the-edits-youve-already-voted-on
   [4]: http://meta.stackoverflow.com/questions/84102/add-ignore-button-to-suggested-edits
-  [5]: http://#
+  [5]: https://github.com/downloads/mattlunn/se-edit-queue/se-edit-queue-install.user.js
   [6]: http://mattlunn.me.uk
