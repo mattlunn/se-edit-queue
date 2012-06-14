@@ -13,6 +13,7 @@ Added bonus:
 
  - Suggested Edits which have already been voted on by another user are automatically listed first
  - Auto-updater built in, so you'll get new features automatically
+ - Individual features can be toggled on and off via preferences shown at the bottom of the edit queue.
 
 ## Install
 
@@ -26,8 +27,7 @@ Released under the [MIT](http://en.wikipedia.org/wiki/MIT_License) license, so d
 
 ## Roadmap
 
- 1. Allow features to be toggled on and off via preferences
- 2. Allow clearing of Ignored edits
+ 1. Allow clearing of Ignored edits
 
 ## Contact
 
