@@ -255,7 +255,7 @@
    */
   jQuery(document).ready(function ($) {
     if (prefs.pref.sideBySideTitle) {
-      $('a.question-hyperlink > span,a.answer-hyperlink > span').each(function () {
+      $('a.question-hyperlink,a.answer-hyperlink').each(function () {
         var self = $(this);
         var other = $();
         
