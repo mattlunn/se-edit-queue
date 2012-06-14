@@ -185,7 +185,7 @@
           // This is a no-op if prefs.pref.reaction !== "fade", as the edit is removed anyway
           try {
             var obj = JSON.parse(data);
-            var wasApproved = /( approve |>approved<)/.test(obj.Message || obj.MiniHtml);
+            var wasApproved = /( approval |>approved<)/.test(obj.Message || obj.MiniHtml);
             var wasRejected = /( reject |>rejected<)/.test(obj.Message || obj.MiniHtml);
                         
             xhr.done(function () {
@@ -214,7 +214,7 @@
   jQuery(document).ready(function ($) {
     // If there are enough suggested edits to fit on one page, we can safety removes suggested-edits from the ignored list
     // which are no longer pending.
-    if ($('.bottom-notice').length) {
+    if ($('.bottom-notice').length || $('a.page-numbers').length) {
       return;
     }
     
