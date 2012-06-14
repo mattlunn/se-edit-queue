@@ -165,7 +165,6 @@
    * Move Edits with votes to the top
    */
   jQuery(document).ready(function ($) {
-  
     if (prefs.pref.promote) {
       var moved = $('.actions input[value$=")"]').closest('.suggested-edit').detach().prependTo('#questions');
       
