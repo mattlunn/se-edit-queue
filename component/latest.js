@@ -110,16 +110,7 @@
     
     // When a pref is updated, update the preferences object.
     var theForm = $('#se-edit-2-settings').on('change', '.pref', function () {
-      var val = (this.type === 'checkbox' ? this.checked : this.value);
-      var name = this.name.slice(prefix.length);
-      
-      if (val === "1") {
-        val = true;
-      } else if (val === "0") {
-        val = false;
-      }
-
-      prefs.pref[name] = val;
+      prefs.pref[this.name.slice(prefix.length)] = (this.type === 'checkbox' ? this.checked : this.value);
       prefs.save();
     });
     
@@ -131,12 +122,6 @@
       if (el.prop('type') === 'checkbox') {
         el.prop('checked', val);
       } else {
-        if (val === true) {
-          val = "1";
-        } else if (val === false) {
-          val = "0";
-        }
-        
         el.val(val);
       }
     }, prefs.pref);
