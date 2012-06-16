@@ -82,7 +82,7 @@
     var prefix = 'se-edit-2-';
     
     $('#questions').parent().append([
-      '<form id="se-edit-2-settings" style="padding:5px; background: #eee; border: 1px solid #ccc; margin-top: 20px;">',
+      '<form id="se-edit-2-settings" style="padding:5px; background: #eee; border: 1px solid #ccc; margin-top: 20px; clear:both;">',
           '<p><strong>Suggested Edit Queue 2.0 Extension Settings (Note page may need to be refreshed for changes to take affect)</strong></p>',
           '<p>',
             '<label>',
