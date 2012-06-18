@@ -156,15 +156,14 @@
 
     $(document).on('click', 'input.ignore-edit', function () {
       var edit = $(this).closest('.suggested-edit');
-      var id = edit.find('.post-id').text();
 
       handleAction(edit, 'ignore');
 
-      prefs.ignoredList.push(id);
+      prefs.ignoredList.push(edit.prop('id').slice('suggested-edit-'.length));
       prefs.save();
     });
   });
-
+  
   /**
    * Move Edits with votes to the top
    */
@@ -245,18 +244,16 @@
     if (prefs.pref.sideBySideTitle) {
       $('a.question-hyperlink,a.answer-hyperlink').each(function () {
         var self = $(this);
-        var other = $();
-
         var additions = self.children('.diff-add');
         var deletions = self.children('.diff-delete');
 
         if (additions.length && deletions.length) {
-          other = self.clone();
-          other.find('.diff-delete').hide();
-
+          var other = self.clone();
+          
           // Only hide, as the "Consistent review effect" implementation uses the title when "move-to-top" is enabled.
           // If we removed the additions, we'd get dodgy titles.
           additions.hide();
+          other.find('.diff-delete').hide();
 
           var diff = $([
             '<div class="body-diffs">',
