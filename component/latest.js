@@ -135,17 +135,13 @@
    * Remove suggested edits from the queue on startup
    */
   jQuery(document).ready(function ($) {
-    var ids = prefs.ignoredList;
-
-    var reviewed = $('div.suggested-edit').filter(function () {
+    $('div.suggested-edit').filter(function () {
       return !$(this).find('.approve-edit').length;
     }).hide();
 
-    var hidden = $('div.post-id').filter(function () {
-      return ids.indexOf(this.textContent) >= 0;
-    }).closest('.suggested-edit').hide();
-
-    l('Hidden ' + reviewed.length + ' edits that have been reviewed already and ' + hidden.length + ' that have been ignored.');
+    prefs.ignoredList.forEach(function (val) {
+      $('#suggested-edit-' + val).hide();
+    });
   });
 
   /**
