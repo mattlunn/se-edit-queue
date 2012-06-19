@@ -5,6 +5,7 @@
   var prefs = (function () {
     var key = 'mattlunn-settings'; // Avoid a key conflict
     var latest = 5;
+    var prefs;
 
     try {
       prefs = JSON.parse(localStorage.getItem(key));
