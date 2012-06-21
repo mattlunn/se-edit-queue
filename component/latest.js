@@ -66,13 +66,16 @@
       }
 
       edit.fadeOut('slow', function () {
-          $('.suggested-edit:first').before([
-            "<div class='answer-summary question-summary'><div class='summary'>",
-            "<a href=\"" + href + "\" class=\"question-hyperlink\">" + title + "</a> ",
-            "(<a href='" + edit.find('a.link').prop('href') + "'>" + description + "</a>)</div></div>"
-          ].join('')).fadeIn("fast");
-
-          $(this).remove();
+        var summary = $([
+          "<div class='answer-summary question-summary'><div class='summary'>",
+          "<a href=\"" + href + "\" class=\"question-hyperlink\"></a> ",
+          "(<a href='" + edit.find('a.link').prop('href') + "'>" + description + "</a>)</div></div>"
+        ].join(''));
+        
+        summary.find('a.question-hyperlink').text(title);
+        summary.insertBefore('.suggested-edit:first');
+        
+        edit.remove();
       });
     } else {
       edit.fadeTo(500, 0.3);
