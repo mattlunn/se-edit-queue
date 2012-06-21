@@ -224,7 +224,7 @@
   jQuery(document).ready(function ($) {
     // If there are enough suggested edits to fit on one page, we can safety removes suggested-edits from the ignored list
     // which are no longer pending.
-    if ($('span.page-numbers').length) {
+    if ($('h2.bottom-notice').length || $('span.page-numbers').length) {
       return;
     }
 
